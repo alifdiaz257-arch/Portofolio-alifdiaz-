@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Web Scraper Pro - Ultimate Scraping Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <span class="material-icons">crypto</span>
+                <h2 class="logo-text">Scraper<span>Pro</span></h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <span class="material-icons">dashboard</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="scraper">
+                    <span class="material-icons">code</span>
+                    <span class="nav-text">Web Scraper</span>
+                </a>
+                <a href="#" class="nav-item" data-page="upload">
+                    <span class="material-icons">cloud_upload</span>
+                    <span class="nav-text">Upload File</span>
+                </a>
+                <a href="#" class="nav-item" data-page="history">
+                    <span class="material-icons">history</span>
+                    <span class="nav-text">History</span>
+                </a>
+                <a href="#" class="nav-item" data-page="github">
+                    <span class="material-icons">upload_file</span>
+                    <span class="nav-text">GitHub</span>
+                </a>
+            </nav>
+            
+            <!-- PIN ACCESS -->
+            <div class="pin-access-menu">
+                <button id="pinAccessBtn" class="pin-access-btn">
+                    <span class="material-icons">vpn_key</span>
+                    <span class="nav-text">PIN ACCESS</span>
+                </button>
+            </div>
+            
+            <div class="theme-switch-wrapper">
+                <span class="material-icons">light_mode</span>
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="material-icons">dark_mode</span>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="main-content" id="mainContent">
+            <header>
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="header-title">
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <div class="header-badge">v3.0</div>
+                </div>
+            </header>
+
+            <div class="content-area" id="contentArea">
+                <!-- ==================== DASHBOARD PAGE ==================== -->
+                <div id="dashboard-page" class="page active">
+                    <!-- Profile Hero -->
+                    <div class="profile-hero reveal">
+                        <div class="profile-avatar-wrapper">
+                            <div class="profile-avatar">
+                                <img id="profileImage" src="foto/foto.png" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?background=E94560&color=fff&rounded=true&size=120&bold=true&name=SP'">
+                                <button class="edit-photo-btn" id="editPhotoBtn" title="Ganti Foto">
+                                    <span class="material-icons">edit</span>
+                                </button>
+                                <div class="profile-status"></div>
+                            </div>
+                            <div class="profile-status-badge">@alifdiaz</div>
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name">Web Scraper <span>Pro</span></h2>
+                            <p class="profile-bio">✨ Powerful Web Scraping Tool with 10+ Advanced Features</p>
+                            <div class="profile-stats">
+                                <div class="stat-badge">
+                                    <span class="material-icons">backup</span>
+                                    <span id="totalScrapes">0</span>
+                                    <span>Scrapes</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="material-icons">folder</span>
+                                    <span id="totalFiles">0</span>
+                                    <span>Files</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="material-icons">cloud_upload</span>
+                                    <span id="totalUploadsFile">0</span>
+                                    <span>Uploads</span>
+                                </div>
+                            </div>
+                            <div class="profile-buttons">
+                                <button id="getStartedBtn" class="btn-get-started">
+                                    <span class="material-icons">rocket_launch</span>
+                                    Get Started
+                                </button>
+                                <button id="ownerBtn" class="btn-owner" onclick="window.open('https://wa.me/6282329663436', '_blank')">
+                                    <span class="material-icons">contact_support</span>
+                                    Owner: 6282329663436
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cara Memakai -->
+                    <div class="section-card reveal">
+                        <div class="section-header">
+                            <span class="material-icons">menu_book</span>
+                            <h2>Cara Memakai Website Ini</h2>
+                        </div>
+                        <div class="steps-grid" id="stepsGrid">
+                            <div class="skeleton-wrapper">
+                                <div class="skeleton-card"></div>
+                                <div class="skeleton-card"></div>
+                                <div class="skeleton-card"></div>
+                                <div class="skeleton-card"></div>
+                                <div class="skeleton-card"></div>
+                                <div class="skeleton-card"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rating System -->
+                    <div class="section-card reveal">
+                        <div class="section-header">
+                            <span class="material-icons">star</span>
+                            <h2>Rating Website</h2>
+                        </div>
+                        <div class="rating-container">
+                            <div class="rating-stars" id="ratingStars">
+                                <span class="star" data-value="1">☆</span>
+                                <span class="star" data-value="2">☆</span>
+                                <span class="star" data-value="3">☆</span>
+                                <span class="star" data-value="4">☆</span>
+                                <span class="star" data-value="5">☆</span>
+                            </div>
+                            <div class="rating-info">
+                                <span class="rating-value"><span id="averageRating">0</span> / 5</span>
+                                <span class="rating-count">(<span id="totalRatings">0</span> ratings)</span>
+                            </div>
+                            <input type="text" id="reviewerName" placeholder="✏️ Nama Anda (opsional)" class="modern-input">
+                            <textarea id="reviewText" placeholder="💬 Tulis ulasan Anda di sini..." rows="3" class="modern-input"></textarea>
+                            <button id="submitRatingBtn" class="btn-submit-rating">
+                                <span class="material-icons">send</span>
+                                Kirim Rating & Ulasan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ulasan -->
+                    <div class="section-card reveal">
+                        <div class="section-header">
+                            <span class="material-icons">chat_bubble</span>
+                            <h2>Ulasan Pengguna</h2>
+                        </div>
+                        <div class="reviews-container" id="reviewsContainer">
+                            <div class="skeleton-wrapper">
+                                <div class="skeleton-review"></div>
+                                <div class="skeleton-review"></div>
+                                <div class="skeleton-review"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== SCRAPER PAGE ==================== -->
+                <div id="scraper-page" class="page">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <span class="material-icons">code</span>
+                            <h2>Web Scraper Tool</h2>
+                        </div>
+                        <div class="scraper-container">
+                            <div class="input-group-modern">
+                                <input type="url" id="urlInput" placeholder="https://example.com" class="modern-input">
+                                <button id="scrapeBtn" class="btn-primary btn-glow">
+                                    <span class="material-icons">play_arrow</span>
+                                    Start Scraping
+                                </button>
+                            </div>
+                            <div id="scrapingStatus" class="status-area"></div>
+                            <div id="fileList" class="file-list">
+                                <div class="skeleton-wrapper">
+                                    <div class="skeleton-file"></div>
+                                    <div class="skeleton-file"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== UPLOAD PAGE ==================== -->
+                <div id="upload-page" class="page">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <span class="material-icons">cloud_upload</span>
+                            <h2>Upload File & Folder</h2>
+                        </div>
+                        <div class="upload-container">
+                            <!-- Drop Zone -->
+                            <div class="drop-zone" id="dropZone">
+                                <div class="drop-zone-icon">
+                                    <span class="material-icons">cloud_upload</span>
+                                </div>
+                                <div class="drop-zone-text">
+                                    <h3>Drag & Drop File/Folder Here</h3>
+                                    <p>atau klik untuk memilih file</p>
+                                </div>
+                                <input type="file" id="fileInput" multiple webkitdirectory directory style="display: none;">
+                                <button id="selectFilesBtn" class="btn-secondary">
+                                    <span class="material-icons">folder_open</span>
+                                    Pilih File/Folder
+                                </button>
+                            </div>
+                            
+                            <!-- Queue -->
+                            <div id="uploadQueue" class="upload-queue">
+                                <h3>Antrian Upload <span id="queueCount">0</span></h3>
+                                <div id="queueList" class="queue-list"></div>
+                                <button id="startUploadBtn" class="btn-primary btn-glow" style="display: none;">
+                                    <span class="material-icons">play_arrow</span>
+                                    Mulai Upload Semua
+                                </button>
+                            </div>
+                            
+                            <!-- History Upload -->
+                            <div id="uploadHistorySection" class="upload-history">
+                                <h3>Riwayat Upload</h3>
+                                <div id="historyUploadList" class="history-upload-list"></div>
+                                <button id="clearUploadHistoryBtn" class="btn-secondary" style="margin-top: 10px;">
+                                    <span class="material-icons">delete</span>
+                                    Hapus Riwayat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== HISTORY PAGE ==================== -->
+                <div id="history-page" class="page">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <span class="material-icons">history</span>
+                            <h2>Scraping History</h2>
+                        </div>
+                        <div id="historyList" class="history-list">
+                            <div class="skeleton-wrapper">
+                                <div class="skeleton-history"></div>
+                                <div class="skeleton-history"></div>
+                            </div>
+                        </div>
+                        <button id="clearHistoryBtn" class="btn-secondary">
+                            <span class="material-icons">delete_sweep</span>
+                            Hapus Semua History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ==================== GITHUB PAGE ==================== -->
+                <div id="github-page" class="page">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <span class="material-icons">upload_file</span>
+                            <h2>Upload ke GitHub</h2>
+                        </div>
+                        <div class="github-form">
+                            <input type="text" id="githubToken" placeholder="🔑 GitHub Personal Access Token" class="modern-input">
+                            <input type="text" id="githubRepo" placeholder="📁 Repository (username/repo)" class="modern-input">
+                            <select id="fileSelect" class="modern-select">
+                                <option value="">📂 Loading files...</option>
+                            </select>
+                            <button id="uploadGitHubBtn" class="btn-success btn-glow">
+                                <span class="material-icons">cloud_upload</span>
+                                Upload to GitHub
+                            </button>
+                            <div id="uploadStatus" class="upload-status"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==================== WELCOME MODAL ==================== -->
+    <div id="welcomeModal" class="welcome-modal">
+        <div class="welcome-modal-content">
+            <div class="welcome-close" id="welcomeCloseBtn">&times;</div>
+            <div class="welcome-header">
+                <div class="welcome-icon">
+                    <span class="material-icons">rocket_launch</span>
+                </div>
+                <h2>Selamat Datang di <span>ScraperPro</span></h2>
+                <p class="welcome-subtitle">Alat scraping web profesional dengan 10+ fitur lengkap</p>
+            </div>
+            <div class="welcome-image">
+                <img src="foto/foto.png" alt="Welcome" onerror="this.src='https://ui-avatars.com/api/?background=E94560&color=fff&size=100&bold=true&name=W'">
+                <div class="welcome-ring"></div>
+            </div>
+            <div class="welcome-features-grid">
+                <div class="welcome-feature-card">
+                    <span class="material-icons">code</span>
+                    <div>
+                        <h4>Source Code</h4>
+                        <p>Ambil semua HTML</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">analytics</span>
+                    <div>
+                        <h4>10 Fitur</h4>
+                        <p>Ekstraksi lengkap</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">menu</span>
+                    <div>
+                        <h4>Menu Utama</h4>
+                        <p>Navigasi otomatis</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">history</span>
+                    <div>
+                        <h4>History</h4>
+                        <p>Semua tersimpan</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">cloud_upload</span>
+                    <div>
+                        <h4>Upload File</h4>
+                        <p>Drag & drop</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">github</span>
+                    <div>
+                        <h4>GitHub</h4>
+                        <p>Upload langsung</p>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome-stats">
+                <div class="welcome-stat">
+                    <span class="stat-number" id="welcomeTotalScrapes">0</span>
+                    <span class="stat-label">Total Scrapes</span>
+                </div>
+                <div class="welcome-stat">
+                    <span class="stat-number" id="welcomeTotalFiles">0</span>
+                    <span class="stat-label">Files Saved</span>
+                </div>
+                <div class="welcome-stat">
+                    <span class="stat-number" id="welcomeTotalUploads">0</span>
+                    <span class="stat-label">Uploads</span>
+                </div>
+            </div>
+            <button id="startScraperBtn" class="welcome-start-btn">
+                <span class="material-icons">rocket_launch</span>
+                Mulai Scraper Sekarang
+                <span class="btn-arrow">→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== PIN MODAL ==================== -->
+    <div id="pinModal" class="pin-modal">
+        <div class="pin-modal-content">
+            <div class="pin-header">
+                <span class="material-icons">vpn_key</span>
+                <h3>PIN ACCESS</h3>
+            </div>
+            <p>Masukkan PIN untuk akses admin</p>
+            <input type="password" id="pinInput" class="pin-input" placeholder="••••••" maxlength="6">
+            <div class="pin-buttons">
+                <button id="submitPinBtn" class="btn-primary">Verifikasi</button>
+                <button id="closePinModal" class="btn-secondary">Batal</button>
+            </div>
+            <div id="pinError" class="pin-error"></div>
+        </div>
+    </div>
+
+    <!-- ==================== PHOTO MODAL ==================== -->
+    <div id="photoModal" class="photo-modal">
+        <div class="photo-modal-content">
+            <h3>📸 Ganti Foto Profil</h3>
+            <input type="text" id="photoUrlInput" placeholder="Masukkan URL gambar" class="modern-input">
+            <div class="photo-preview">
+                <p>Preview:</p>
+                <img id="photoPreview" src="foto/foto.png" alt="Preview">
+            </div>
+            <div class="modal-buttons">
+                <button id="savePhotoBtn" class="btn-primary">💾 Simpan</button>
+                <button id="closePhotoModal" class="btn-secondary">❌ Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DOWNLOAD POPUP ==================== -->
+    <div id="customPopup" class="custom-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="material-icons">check_circle</span>
+                <h3>Download Ready!</h3>
+                <button class="close-popup">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>✅ File berhasil disimpan!</p>
+                <button id="downloadFileBtn" class="btn-download">
+                    <span class="material-icons">download</span>
+                    Download File
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toastNotification" class="toast-notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
