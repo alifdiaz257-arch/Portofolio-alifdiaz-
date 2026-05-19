@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="app">
-        <!-- SIDEBAR -->
+        <!-- ==================== SIDEBAR ==================== -->
         <aside class="sidebar" id="sidebar">
             <div class="logo">
                 <span class="material-icons">crypto</span>
@@ -25,13 +25,17 @@
                     <span class="material-icons">code</span>
                     <span class="nav-text">Web Scraper</span>
                 </a>
+                <a href="#" class="nav-item" data-page="upload">
+                    <span class="material-icons">cloud_upload</span>
+                    <span class="nav-text">Upload File</span>
+                </a>
                 <a href="#" class="nav-item" data-page="history">
                     <span class="material-icons">history</span>
                     <span class="nav-text">History</span>
                 </a>
                 <a href="#" class="nav-item" data-page="github">
                     <span class="material-icons">upload_file</span>
-                    <span class="nav-text">Upload ke GitHub</span>
+                    <span class="nav-text">GitHub</span>
                 </a>
             </nav>
             
@@ -53,7 +57,7 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
+        <!-- ==================== MAIN CONTENT ==================== -->
         <main class="main-content" id="mainContent">
             <header>
                 <button class="menu-toggle" id="menuToggle">
@@ -61,15 +65,15 @@
                 </button>
                 <div class="header-title">
                     <h1 id="pageTitle">Dashboard</h1>
-                    <div class="header-badge">v2.0</div>
+                    <div class="header-badge">v3.0</div>
                 </div>
             </header>
 
             <div class="content-area" id="contentArea">
-                <!-- DASHBOARD PAGE -->
+                <!-- ==================== DASHBOARD PAGE ==================== -->
                 <div id="dashboard-page" class="page active">
-                    <!-- Profile Hero Section -->
-                    <div class="profile-hero">
+                    <!-- Profile Hero -->
+                    <div class="profile-hero reveal">
                         <div class="profile-avatar-wrapper">
                             <div class="profile-avatar">
                                 <img id="profileImage" src="foto/foto.png" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?background=E94560&color=fff&rounded=true&size=120&bold=true&name=SP'">
@@ -78,7 +82,7 @@
                                 </button>
                                 <div class="profile-status"></div>
                             </div>
-                            <div class="profile-status-badge">Online</div>
+                            <div class="profile-status-badge">@alifdiaz</div>
                         </div>
                         <div class="profile-info">
                             <h2 class="profile-name">Web Scraper <span>Pro</span></h2>
@@ -95,8 +99,8 @@
                                     <span>Files</span>
                                 </div>
                                 <div class="stat-badge">
-                                    <span class="material-icons">github</span>
-                                    <span id="totalUploads">0</span>
+                                    <span class="material-icons">cloud_upload</span>
+                                    <span id="totalUploadsFile">0</span>
                                     <span>Uploads</span>
                                 </div>
                             </div>
@@ -113,7 +117,7 @@
                         </div>
                     </div>
 
-                    <!-- Cara Memakai dengan Scroll Reveal -->
+                    <!-- Cara Memakai -->
                     <div class="section-card reveal">
                         <div class="section-header">
                             <span class="material-icons">menu_book</span>
@@ -158,7 +162,7 @@
                         </div>
                     </div>
 
-                    <!-- Ulasan Pengguna -->
+                    <!-- Ulasan -->
                     <div class="section-card reveal">
                         <div class="section-header">
                             <span class="material-icons">chat_bubble</span>
@@ -174,7 +178,7 @@
                     </div>
                 </div>
 
-                <!-- SCRAPER PAGE -->
+                <!-- ==================== SCRAPER PAGE ==================== -->
                 <div id="scraper-page" class="page">
                     <div class="section-card">
                         <div class="section-header">
@@ -200,7 +204,54 @@
                     </div>
                 </div>
 
-                <!-- HISTORY PAGE -->
+                <!-- ==================== UPLOAD PAGE ==================== -->
+                <div id="upload-page" class="page">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <span class="material-icons">cloud_upload</span>
+                            <h2>Upload File & Folder</h2>
+                        </div>
+                        <div class="upload-container">
+                            <!-- Drop Zone -->
+                            <div class="drop-zone" id="dropZone">
+                                <div class="drop-zone-icon">
+                                    <span class="material-icons">cloud_upload</span>
+                                </div>
+                                <div class="drop-zone-text">
+                                    <h3>Drag & Drop File/Folder Here</h3>
+                                    <p>atau klik untuk memilih file</p>
+                                </div>
+                                <input type="file" id="fileInput" multiple webkitdirectory directory style="display: none;">
+                                <button id="selectFilesBtn" class="btn-secondary">
+                                    <span class="material-icons">folder_open</span>
+                                    Pilih File/Folder
+                                </button>
+                            </div>
+                            
+                            <!-- Queue -->
+                            <div id="uploadQueue" class="upload-queue">
+                                <h3>Antrian Upload <span id="queueCount">0</span></h3>
+                                <div id="queueList" class="queue-list"></div>
+                                <button id="startUploadBtn" class="btn-primary btn-glow" style="display: none;">
+                                    <span class="material-icons">play_arrow</span>
+                                    Mulai Upload Semua
+                                </button>
+                            </div>
+                            
+                            <!-- History Upload -->
+                            <div id="uploadHistorySection" class="upload-history">
+                                <h3>Riwayat Upload</h3>
+                                <div id="historyUploadList" class="history-upload-list"></div>
+                                <button id="clearUploadHistoryBtn" class="btn-secondary" style="margin-top: 10px;">
+                                    <span class="material-icons">delete</span>
+                                    Hapus Riwayat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== HISTORY PAGE ==================== -->
                 <div id="history-page" class="page">
                     <div class="section-card">
                         <div class="section-header">
@@ -213,11 +264,14 @@
                                 <div class="skeleton-history"></div>
                             </div>
                         </div>
-                        <button id="clearHistoryBtn" class="btn-secondary">🗑️ Clear All History</button>
+                        <button id="clearHistoryBtn" class="btn-secondary">
+                            <span class="material-icons">delete_sweep</span>
+                            Hapus Semua History
+                        </button>
                     </div>
                 </div>
 
-                <!-- GITHUB PAGE -->
+                <!-- ==================== GITHUB PAGE ==================== -->
                 <div id="github-page" class="page">
                     <div class="section-card">
                         <div class="section-header">
@@ -230,7 +284,7 @@
                             <select id="fileSelect" class="modern-select">
                                 <option value="">📂 Loading files...</option>
                             </select>
-                            <button id="uploadBtn" class="btn-success btn-glow">
+                            <button id="uploadGitHubBtn" class="btn-success btn-glow">
                                 <span class="material-icons">cloud_upload</span>
                                 Upload to GitHub
                             </button>
@@ -242,44 +296,88 @@
         </main>
     </div>
 
-    <!-- WELCOME MODAL - RAPIH, KECIL, ELEGAN -->
+    <!-- ==================== WELCOME MODAL ==================== -->
     <div id="welcomeModal" class="welcome-modal">
         <div class="welcome-modal-content">
             <div class="welcome-close" id="welcomeCloseBtn">&times;</div>
+            <div class="welcome-header">
+                <div class="welcome-icon">
+                    <span class="material-icons">rocket_launch</span>
+                </div>
+                <h2>Selamat Datang di <span>ScraperPro</span></h2>
+                <p class="welcome-subtitle">Alat scraping web profesional dengan 10+ fitur lengkap</p>
+            </div>
             <div class="welcome-image">
                 <img src="foto/foto.png" alt="Welcome" onerror="this.src='https://ui-avatars.com/api/?background=E94560&color=fff&size=100&bold=true&name=W'">
                 <div class="welcome-ring"></div>
             </div>
-            <h2>Selamat Datang di <span>ScraperPro</span></h2>
-            <p class="welcome-subtitle">Alat scraping web profesional dengan 10+ fitur lengkap</p>
-            
-            <div class="welcome-features">
-                <div class="welcome-feature">
-                    <span class="material-icons">check_circle</span>
-                    <span>Source Code Lengkap</span>
+            <div class="welcome-features-grid">
+                <div class="welcome-feature-card">
+                    <span class="material-icons">code</span>
+                    <div>
+                        <h4>Source Code</h4>
+                        <p>Ambil semua HTML</p>
+                    </div>
                 </div>
-                <div class="welcome-feature">
-                    <span class="material-icons">check_circle</span>
-                    <span>10 Fitur Ekstraksi</span>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">analytics</span>
+                    <div>
+                        <h4>10 Fitur</h4>
+                        <p>Ekstraksi lengkap</p>
+                    </div>
                 </div>
-                <div class="welcome-feature">
-                    <span class="material-icons">check_circle</span>
-                    <span>Menu Navigasi Otomatis</span>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">menu</span>
+                    <div>
+                        <h4>Menu Utama</h4>
+                        <p>Navigasi otomatis</p>
+                    </div>
                 </div>
-                <div class="welcome-feature">
-                    <span class="material-icons">check_circle</span>
-                    <span>History & Download</span>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">history</span>
+                    <div>
+                        <h4>History</h4>
+                        <p>Semua tersimpan</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">cloud_upload</span>
+                    <div>
+                        <h4>Upload File</h4>
+                        <p>Drag & drop</p>
+                    </div>
+                </div>
+                <div class="welcome-feature-card">
+                    <span class="material-icons">github</span>
+                    <div>
+                        <h4>GitHub</h4>
+                        <p>Upload langsung</p>
+                    </div>
                 </div>
             </div>
-            
+            <div class="welcome-stats">
+                <div class="welcome-stat">
+                    <span class="stat-number" id="welcomeTotalScrapes">0</span>
+                    <span class="stat-label">Total Scrapes</span>
+                </div>
+                <div class="welcome-stat">
+                    <span class="stat-number" id="welcomeTotalFiles">0</span>
+                    <span class="stat-label">Files Saved</span>
+                </div>
+                <div class="welcome-stat">
+                    <span class="stat-number" id="welcomeTotalUploads">0</span>
+                    <span class="stat-label">Uploads</span>
+                </div>
+            </div>
             <button id="startScraperBtn" class="welcome-start-btn">
                 <span class="material-icons">rocket_launch</span>
-                Mulai Scraper
+                Mulai Scraper Sekarang
+                <span class="btn-arrow">→</span>
             </button>
         </div>
     </div>
 
-    <!-- PIN MODAL -->
+    <!-- ==================== PIN MODAL ==================== -->
     <div id="pinModal" class="pin-modal">
         <div class="pin-modal-content">
             <div class="pin-header">
@@ -296,7 +394,7 @@
         </div>
     </div>
 
-    <!-- PHOTO MODAL -->
+    <!-- ==================== PHOTO MODAL ==================== -->
     <div id="photoModal" class="photo-modal">
         <div class="photo-modal-content">
             <h3>📸 Ganti Foto Profil</h3>
@@ -312,7 +410,7 @@
         </div>
     </div>
 
-    <!-- DOWNLOAD POPUP -->
+    <!-- ==================== DOWNLOAD POPUP ==================== -->
     <div id="customPopup" class="custom-popup">
         <div class="popup-content">
             <div class="popup-header">
@@ -330,7 +428,7 @@
         </div>
     </div>
 
-    <!-- TOAST -->
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
     <div id="toastNotification" class="toast-notification"></div>
 
     <script src="script.js"></script>
